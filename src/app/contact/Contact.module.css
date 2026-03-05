@@ -1,6 +1,6 @@
 /* ---- Banner ---- */
 .banner {
-    height: 380px;
+    height: 450px;
     position: relative;
     display: flex;
     align-items: center;
@@ -22,6 +22,7 @@
 .bannerContent {
     position: relative;
     z-index: 2;
+    text-align: center;
 }
 
 .bannerContent h1 {
@@ -147,9 +148,9 @@
 /* ---- Form Side ---- */
 .formSide {
     background: var(--card-bg);
-    padding: 50px;
-    border-radius: var(--radius-md);
-    box-shadow: var(--shadow-sm);
+    padding: 60px;
+    border-radius: 32px;
+    box-shadow: 0 40px 100px -20px rgba(0, 0, 0, 0.08);
     border: 1px solid var(--border);
 }
 

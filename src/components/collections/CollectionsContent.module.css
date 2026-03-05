@@ -5,20 +5,21 @@
 /* ── HERO BANNER ── */
 .banner {
     position: relative;
-    height: 55vh;
-    min-height: 420px;
+    height: 70vh;
+    min-height: 500px;
     display: flex;
-    align-items: flex-end;
+    align-items: center;
+    justify-content: center;
     padding-top: 80px;
-    /* navbar offset */
     overflow: hidden;
+    text-align: center;
 }
 
-/* .bannerBg {
+.bannerBg {
     position: absolute;
     inset: 0;
     z-index: 1;
-} */
+}
 
 .bannerImg {
     object-fit: cover;
@@ -38,28 +39,32 @@
     position: relative;
     z-index: 10;
     color: white;
-    padding-bottom: 56px;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 .bannerTag {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 12px;
-    font-size: 0.7rem;
-    font-weight: 600;
+    font-size: 0.75rem;
+    font-weight: 800;
     text-transform: uppercase;
     letter-spacing: 6px;
     color: var(--accent);
-    margin-bottom: 16px;
+    margin-bottom: 25px;
     font-family: 'Outfit', sans-serif;
 }
 
-.bannerTag::before {
+.bannerTag::before,
+.bannerTag::after {
     content: '';
     display: block;
-    width: 28px;
+    width: 30px;
     height: 1px;
     background: var(--accent);
+    opacity: 0.6;
 }
 
 .bannerTitle {
@@ -79,9 +84,10 @@
 }
 
 .bannerDesc {
-    font-size: 1rem;
-    color: rgba(255, 255, 255, 0.65);
-    max-width: 480px;
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.7);
+    max-width: 600px;
+    margin: 0 auto;
     line-height: 1.8;
     font-weight: 300;
     font-family: 'Outfit', sans-serif;
@@ -96,26 +102,23 @@
 .grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-auto-rows: 380px;
-    gap: 20px;
+    gap: 30px;
 }
 
 /* ── Collection Card ── */
 .card {
     position: relative;
+    height: 480px;
     overflow: hidden;
     cursor: pointer;
-    border-radius: 2px;
+    border-radius: 20px;
+    background: var(--card-bg);
 }
 
-/* Featured: tall card (2 rows) */
-.card:nth-child(1) {
-    grid-row: span 2;
-}
-
-/* Featured: wide card (2 cols on row 2) */
-.card:nth-child(4) {
-    grid-column: span 2;
+/* Balanced featured items */
+.card.featured {
+    grid-column: span 1;
+    /* Remove spanning for perfect alignment of 6 items */
 }
 
 .imgWrap {

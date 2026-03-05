@@ -1,17 +1,16 @@
 "use client"
 import Link from 'next/link';
-import { ShoppingCart, User, Search, Menu, Heart, X } from 'lucide-react';
+import { ShoppingCart, User, Search, Menu, Heart, X, LogOut, ShieldCheck } from 'lucide-react';
+import { useSession, signOut } from 'next-auth/react';
 import styles from './Navbar.module.css';
 import { useState, useEffect, useRef, useMemo } from 'react';
-import ThemeToggle from '@/components/common/ThemeToggle/ThemeToggle';
 import { products } from '@/data/mockData';
 import { useRouter } from 'next/navigation';
 import { useCart } from '@/context/CartContext';
 import { useWishlist } from '@/context/WishlistContext';
 
-// transparent={true}  → starts clear on hero, becomes solid on scroll (homepage)
-// transparent={false} → always solid (all other pages: shop, about, contact, etc.)
 export default function Navbar({ transparent = false }) {
+    const { data: session } = useSession();
     const [isScrolled, setIsScrolled] = useState(!transparent);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [isSearchOpen, setIsSearchOpen] = useState(false);
@@ -22,15 +21,11 @@ export default function Navbar({ transparent = false }) {
     const { wishlistCount } = useWishlist();
 
     useEffect(() => {
-        // If it's NOT a transparent page, it should ALWAYS be scrolled (solid)
         if (!transparent) {
-            requestAnimationFrame(() => {
-                setIsScrolled(true);
-            });
+            setIsScrolled(true);
             return;
         }
 
-        // If it IS a transparent page, handle scroll logic
         const handleScroll = () => {
             setIsScrolled(window.scrollY > 60);
         };
@@ -40,20 +35,17 @@ export default function Navbar({ transparent = false }) {
         return () => window.removeEventListener('scroll', handleScroll);
     }, [transparent]);
 
-    // Close search on outside click
     useEffect(() => {
         const handleClick = (e) => {
             if (searchRef.current && !searchRef.current.contains(e.target)) {
                 setIsSearchOpen(false);
                 setSearchQuery('');
-                setSearchResults([]);
             }
         };
         if (isSearchOpen) document.addEventListener('mousedown', handleClick);
         return () => document.removeEventListener('mousedown', handleClick);
     }, [isSearchOpen]);
 
-    // Search logic (derived)
     const searchResults = useMemo(() => {
         if (!searchQuery.trim()) return [];
         const q = searchQuery.toLowerCase();
@@ -74,13 +66,10 @@ export default function Navbar({ transparent = false }) {
         <>
             <nav className={`${styles.navbar} ${isScrolled ? styles.scrolled : styles.transparent}`}>
                 <div className={`container ${styles.navContainer}`}>
-
-                    {/* LOGO */}
                     <div className={styles.logo}>
                         <Link href="/">LUMIÈRE</Link>
                     </div>
 
-                    {/* NAV LINKS */}
                     <ul className={`${styles.navLinks} ${isMenuOpen ? styles.open : ''}`}>
                         <li><Link href="/" onClick={() => setIsMenuOpen(false)}>Home</Link></li>
                         <li><Link href="/shop" onClick={() => setIsMenuOpen(false)}>Shop</Link></li>
@@ -89,7 +78,6 @@ export default function Navbar({ transparent = false }) {
                         <li><Link href="/contact" onClick={() => setIsMenuOpen(false)}>Contact</Link></li>
                     </ul>
 
-                    {/* ACTION ICONS */}
                     <div className={styles.navActions}>
                         <button
                             suppressHydrationWarning
@@ -99,9 +87,34 @@ export default function Navbar({ transparent = false }) {
                         >
                             <Search size={20} />
                         </button>
-                        <Link href="/dashboard" className={styles.iconBtn} aria-label="Account">
-                            <User size={20} />
-                        </Link>
+
+                        {session ? (
+                            <div className={styles.userSection}>
+                                <Link href="/my-account" className={styles.iconBtn} aria-label="Account">
+                                    {session.user.image ? (
+                                        <img src={session.user.image} alt={session.user.name} className={styles.userAvatar} />
+                                    ) : (
+                                        <User size={20} />
+                                    )}
+                                </Link>
+                                <Link href="/profile" className={styles.iconBtn} aria-label="Profile">
+                                    <ShieldCheck size={20} />
+                                </Link>
+                                <button
+                                    suppressHydrationWarning
+                                    className={styles.iconBtn}
+                                    onClick={() => signOut()}
+                                    aria-label="Sign Out"
+                                >
+                                    <LogOut size={20} />
+                                </button>
+                            </div>
+                        ) : (
+                            <Link href="/login" className={styles.iconBtn} aria-label="Account">
+                                <User size={20} />
+                            </Link>
+                        )}
+
                         <Link href="/wishlist" className={`${styles.iconBtn} ${styles.badgeWrap}`} aria-label="Wishlist">
                             <Heart size={20} />
                             {wishlistCount > 0 && <span className={styles.badge}>{wishlistCount}</span>}
@@ -111,12 +124,8 @@ export default function Navbar({ transparent = false }) {
                             {cartCount > 0 && <span className={styles.badge}>{cartCount}</span>}
                         </Link>
 
-                        {/* Theme Toggle */}
-                        <div className={styles.themeWrap}>
-                            <ThemeToggle />
-                        </div>
 
-                        {/* Hamburger */}
+
                         <button
                             suppressHydrationWarning
                             className={styles.hamburger}
@@ -129,7 +138,6 @@ export default function Navbar({ transparent = false }) {
                 </div>
             </nav>
 
-            {/* Search Overlay */}
             {isSearchOpen && (
                 <div className={styles.searchOverlay}>
                     <div className={styles.searchBox} ref={searchRef}>
@@ -144,6 +152,7 @@ export default function Navbar({ transparent = false }) {
                                 className={styles.searchInput}
                             />
                             <button
+                                suppressHydrationWarning
                                 type="button"
                                 className={styles.searchClose}
                                 onClick={() => { setIsSearchOpen(false); setSearchQuery(''); }}
@@ -155,20 +164,13 @@ export default function Navbar({ transparent = false }) {
                             <ul className={styles.searchResults}>
                                 {searchResults.map(p => (
                                     <li key={p.id}>
-                                        <Link
-                                            href={`/product/${p.id}`}
-                                            onClick={() => { setIsSearchOpen(false); setSearchQuery(''); }}
-                                            className={styles.resultItem}
-                                        >
+                                        <Link href={`/product/${p.id}`} onClick={() => { setIsSearchOpen(false); setSearchQuery(''); }} className={styles.resultItem}>
                                             <span className={styles.resultName}>{p.name}</span>
                                             <span className={styles.resultCategory}>{p.category} · ${p.price}</span>
                                         </Link>
                                     </li>
                                 ))}
                             </ul>
-                        )}
-                        {searchQuery && searchResults.length === 0 && (
-                            <p className={styles.noResults}>No products found for &quot;{searchQuery}&quot;</p>
                         )}
                     </div>
                 </div>

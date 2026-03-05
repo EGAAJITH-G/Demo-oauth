@@ -1,66 +1,79 @@
 "use client"
-import { useState } from 'react';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
-import { Mail, ArrowLeft } from 'lucide-react';
+import { Mail, ArrowLeft, Send } from 'lucide-react';
 import styles from '../auth.module.css';
+import { useState } from 'react';
 import { useToast } from '@/components/common/Toast/Toast';
 
 export default function ForgotPasswordPage() {
-    const router = useRouter();
     const { addToast } = useToast();
-    const [email, setEmail] = useState('');
     const [loading, setLoading] = useState(false);
+    const [email, setEmail] = useState('');
+    const [submitted, setSubmitted] = useState(false);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         setLoading(true);
-        await new Promise(res => setTimeout(res, 800));
+        // Simulate email sending
+        await new Promise(res => setTimeout(res, 1200));
         setLoading(false);
-        addToast(`Reset link sent to ${email}! Check your inbox.`, 'success', 5000);
-        setEmail('');
-        setTimeout(() => router.push('/login'), 2000);
+        setSubmitted(true);
+        addToast('Recovery instructions sent!', 'success');
     };
 
     return (
         <div className={styles.authPageFull}>
-            <div className={styles.authOverlay}></div>
-
-            <Link href="/login" className={styles.backHome} style={{ zIndex: 20, position: 'fixed', top: 30, left: 30, color: 'white', background: 'rgba(255,255,255,0.1)', padding: '10px 20px', borderRadius: '30px', backdropFilter: 'blur(5px)', border: '1px solid rgba(255,255,255,0.15)' }}>
-                <ArrowLeft size={16} />
-                Back to Login
-            </Link>
+            <div className={styles.bgBlob + ' ' + styles.blob1}></div>
+            <div className={styles.bgBlob + ' ' + styles.blob2}></div>
 
             <div className={styles.authContainerFull}>
-                <div className={styles.authLogo}>LUMIÈRE</div>
-                <h1 className={styles.authTitle}>Reset <span>Password</span></h1>
-                <p className={styles.authSubtitle} style={{ color: 'rgba(255,255,255,0.7)', marginBottom: 30 }}>
-                    Enter your email and we&apos;ll send you a link to reset your password.
-                </p>
+                {!submitted ? (
+                    <>
+                        <h1 className={styles.authTitle}>Reset <span>Password</span></h1>
+                        <p className={styles.authSubtitle}>Enter your email to receive recovery instructions.</p>
 
-                <form className={styles.form} onSubmit={handleSubmit}>
-                    <div className={styles.formGroup}>
-                        <label>Email Address</label>
-                        <div className={styles.inputWrapper}>
-                            <Mail className={styles.inputIcon} size={17} />
-                            <input
-                                type="email"
-                                value={email}
-                                onChange={(e) => setEmail(e.target.value)}
-                                placeholder="john@example.com"
-                                required
-                            />
-                        </div>
+                        <form className={styles.form} onSubmit={handleSubmit}>
+                            <div className={styles.formGroup}>
+                                <label>Email Address</label>
+                                <div className={styles.inputWrapper}>
+                                    <Mail className={styles.inputIcon} size={20} />
+                                    <input
+                                        type="email"
+                                        placeholder="your@email.com"
+                                        value={email}
+                                        onChange={(e) => setEmail(e.target.value)}
+                                        required
+                                    />
+                                </div>
+                            </div>
+
+                            <button type="submit" className={styles.submitBtn} disabled={loading}>
+                                {loading ? 'Sending...' : 'Send Reset Link'}
+                            </button>
+                        </form>
+                    </>
+                ) : (
+                    <div className={styles.submittedContent}>
+                        <h2 className={styles.authTitle}>Check Your <span>Inbox</span></h2>
+                        <p className={styles.authSubtitle}>
+                            We&apos;ve sent a password reset link to <strong>{email}</strong>.
+                            Please check your email and follow the instructions.
+                        </p>
+                        <button
+                            className={styles.submitBtn}
+                            onClick={() => setSubmitted(false)}
+                            style={{ marginTop: '20px' }}
+                        >
+                            Try another email
+                        </button>
                     </div>
-
-                    <button type="submit" className={styles.submitBtn} disabled={loading}>
-                        {loading ? 'Sending...' : 'Send Reset Link'}
-                    </button>
-                </form>
+                )}
 
                 <div className={styles.switchPage}>
-                    Remember your password?
-                    <Link href="/login">Sign In</Link>
+                    <Link href="/login" className={styles.backHome} style={{ position: 'static', background: 'none', border: 'none', justifyContent: 'center' }}>
+                        <ArrowLeft size={16} style={{ marginRight: '8px' }} />
+                        Back to login
+                    </Link>
                 </div>
             </div>
         </div>

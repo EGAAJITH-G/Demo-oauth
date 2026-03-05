@@ -3,6 +3,7 @@ import { ThemeProvider } from '@/context/ThemeContext';
 import { ToastProvider } from '@/components/common/Toast/Toast';
 import { CartProvider } from '@/context/CartContext';
 import AppWrapper from '@/components/layout/AppWrapper';
+import NextAuthProvider from '@/components/providers/NextAuthProvider';
 import './globals.css';
 
 export const metadata = {
@@ -75,9 +76,11 @@ export default function RootLayout({ children }) {
           <CartProvider>
             <WishlistProvider>
               <ToastProvider>
-                <AppWrapper>
-                  {children}
-                </AppWrapper>
+                <NextAuthProvider>
+                  <AppWrapper>
+                    {children}
+                  </AppWrapper>
+                </NextAuthProvider>
               </ToastProvider>
             </WishlistProvider>
           </CartProvider>

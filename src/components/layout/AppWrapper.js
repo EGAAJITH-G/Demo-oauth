@@ -19,7 +19,7 @@ export default function AppWrapper({ children }) {
     }
 
     return (
-        <div style={{ width: '100%', position: 'relative' }}>
+        <div suppressHydrationWarning style={{ width: '100%', position: 'relative' }}>
             <Navbar transparent={isTransparentPage} />
             <main style={{
                 minHeight: '80vh',

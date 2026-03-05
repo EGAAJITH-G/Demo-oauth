@@ -34,9 +34,8 @@ export default function FeaturedProducts() {
 
                 <motion.div
                     variants={containerVariants}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true }}
+                    initial="visible"
+                    animate="visible"
                     className={styles.grid}
                 >
                     {featured.map(product => (
@@ -47,9 +46,8 @@ export default function FeaturedProducts() {
                 </motion.div>
 
                 <motion.div
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
+                    initial={{ opacity: 1, scale: 1 }}
+                    animate={{ opacity: 1, scale: 1 }}
                     className={styles.viewAll}
                 >
                     <Link href="/shop" className={styles.viewBtn}>View All Products</Link>

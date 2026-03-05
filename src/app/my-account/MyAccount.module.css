@@ -1,0 +1,783 @@
+.venumPage {
+    padding-top: 140px;
+    padding-bottom: 200px;
+    min-height: 100vh;
+    background: var(--bg);
+    position: relative;
+    overflow: hidden;
+    color: var(--text);
+}
+
+.ambientPulse {
+    position: absolute;
+    top: -100px;
+    right: -100px;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(197, 160, 89, 0.08) 0%, transparent 70%);
+    border-radius: 50%;
+    z-index: 0;
+    pointer-events: none;
+    animation: pulse 12s infinite alternate ease-in-out;
+}
+
+.ambientPulse2 {
+    position: absolute;
+    bottom: -150px;
+    left: -150px;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(10, 10, 10, 0.05) 0%, transparent 70%);
+    border-radius: 50%;
+    z-index: 0;
+    pointer-events: none;
+    animation: pulse 15s infinite alternate-reverse ease-in-out;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1) translate(0, 0);
+        opacity: 0.5;
+    }
+
+    100% {
+        transform: scale(1.2) translate(50px, 30px);
+        opacity: 0.8;
+    }
+}
+
+.venumLayout {
+    display: grid;
+    grid-template-columns: 360px 1fr;
+    gap: 50px;
+    align-items: start;
+    position: relative;
+    z-index: 1;
+}
+
+/* Sidebar Styling */
+.venumSidebar {
+    position: sticky;
+    top: 120px;
+}
+
+.venumUserBox {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 30px;
+    padding: 45px 30px;
+    text-align: center;
+    margin-bottom: 30px;
+    box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.06);
+    backdrop-filter: blur(10px);
+}
+
+.venumAvatarWrapper {
+    position: relative;
+    width: 140px;
+    height: 140px;
+    margin: 0 auto 25px;
+}
+
+.venumAvatarRing {
+    position: absolute;
+    inset: -6px;
+    border: 1px solid var(--accent);
+    border-radius: 50%;
+    opacity: 0.3;
+    animation: rotate 20s linear infinite;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.venumAvatarWrapper::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border: 2px solid var(--accent);
+    border-radius: 50%;
+    padding: 6px;
+}
+
+.venumAvatar {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    padding: 6px;
+    background: var(--bg);
+}
+
+.avatarEditBtn {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    background: var(--accent);
+    color: white;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid var(--card-bg);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.venumUserDetails h1 {
+    font-size: 1.8rem;
+    font-weight: 800;
+    margin-bottom: 8px;
+    letter-spacing: -0.01em;
+}
+
+.venumUserDetails p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.venumUserDetails span {
+    color: var(--accent);
+}
+
+/* Nav Menu */
+.venumNav {
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+    padding: 10px;
+}
+
+.navGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.navGroup label {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 800;
+    margin-bottom: 10px;
+    margin-left: 20px;
+    opacity: 0.5;
+}
+
+.venumNavItem {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 14px 22px;
+    border-radius: 16px;
+    color: var(--text);
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+}
+
+.navIcon {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-soft);
+    border-radius: 12px;
+    color: var(--text-muted);
+    transition: all 0.3s ease;
+}
+
+.venumNavItem:hover {
+    background: var(--bg-soft);
+    transform: translateX(5px);
+}
+
+.venumNavItem:hover .navIcon {
+    color: var(--accent);
+    background: var(--white);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.venumActiveNav {
+    background: var(--primary);
+    color: var(--white);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.15);
+}
+
+.venumActiveNav .navIcon {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--accent);
+}
+
+.venumActiveNav:hover {
+    background: var(--primary);
+    transform: none;
+}
+
+.navFooter {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+}
+
+.venumLogoutBtn {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    padding: 16px 22px;
+    border-radius: 16px;
+    color: #ef4444;
+    font-weight: 600;
+    background: rgba(239, 68, 68, 0.05);
+    border: 1px solid rgba(239, 68, 68, 0.1);
+    transition: all 0.3s ease;
+}
+
+.venumLogoutBtn:hover {
+    background: #ef4444;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(239, 68, 68, 0.2);
+}
+
+/* Main Content Area */
+.venumMain {
+    min-width: 0;
+}
+
+.venumContentCard {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 40px;
+    padding: 70px;
+    box-shadow: 0 40px 100px -20px rgba(0, 0, 0, 0.08);
+    min-height: 800px;
+    position: relative;
+    overflow: hidden;
+}
+
+.sectionHeader {
+    margin-bottom: 60px;
+}
+
+.badgeLine {
+    display: inline-block;
+    background: rgba(197, 160, 89, 0.1);
+    color: var(--accent);
+    padding: 6px 16px;
+    border-radius: 99px;
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+.sectionTitle {
+    font-size: 3.2rem;
+    font-weight: 800;
+    margin-bottom: 15px;
+    color: var(--text);
+    letter-spacing: -0.03em;
+}
+
+.sectionTitle span {
+    font-weight: 400;
+    font-style: italic;
+    color: var(--accent);
+    opacity: 0.8;
+}
+
+.sectionDesc {
+    font-size: 1.15rem;
+    color: var(--text-muted);
+}
+
+/* Dashboard Widgets */
+.overviewGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    margin-bottom: 50px;
+}
+
+.statCard {
+    background: var(--bg-soft);
+    padding: 30px;
+    border-radius: 24px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    border: 1px solid var(--border);
+}
+
+.statIcon {
+    width: 48px;
+    height: 48px;
+    background: var(--white);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04);
+}
+
+.statInfo label {
+    display: block;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-muted);
+    font-weight: 700;
+}
+
+.statInfo h3 {
+    font-size: 1.6rem;
+    font-weight: 800;
+}
+
+.promoBanner {
+    background: linear-gradient(135deg, var(--primary) 0%, #1a1a1a 100%);
+    border-radius: 30px;
+    padding: 50px;
+    color: white;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    align-items: center;
+    margin-bottom: 60px;
+    position: relative;
+    overflow: hidden;
+}
+
+.promoBanner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=1470&auto=format&fit=crop') center/cover;
+    opacity: 0.15;
+    mix-blend-mode: luminosity;
+}
+
+.promoContent {
+    position: relative;
+    z-index: 1;
+}
+
+.promoContent h4 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    letter-spacing: -0.01em;
+}
+
+.promoContent p {
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+.promoBtn {
+    display: inline-flex;
+    padding: 14px 32px;
+    background: var(--accent);
+    color: white;
+    border-radius: 99px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Activity List */
+.activityHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.activityHeader h4 {
+    font-size: 1.3rem;
+    font-weight: 800;
+}
+
+.activityHeader button {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--accent);
+}
+
+.activityList {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.activityItem {
+    background: var(--bg-soft);
+    padding: 22px 30px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    border: 1px solid var(--border);
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    background: var(--accent);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--accent);
+}
+
+.activityItem p {
+    flex: 1;
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.activityItem span {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+/* Profile Form */
+.profileFormGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.inputWrap {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.inputWrap label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: 5px;
+}
+
+.venumInput {
+    background: var(--bg-soft);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 18px 24px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text);
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+.venumInput:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    background: transparent;
+    border-style: dashed;
+}
+
+.editable:focus {
+    background: var(--white);
+    border-color: var(--accent);
+    box-shadow: 0 10px 30px rgba(197, 160, 89, 0.08);
+}
+
+/* Orders */
+.venumOrderList {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.venumOrderCard {
+    background: var(--bg-soft);
+    border: 1px solid var(--border);
+    border-radius: 25px;
+    padding: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.venumOrderCard:hover {
+    background: var(--white);
+    border-color: var(--accent);
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+}
+
+.orderLeft {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.orderIcon {
+    width: 56px;
+    height: 56px;
+    background: var(--white);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.03);
+}
+
+.orderMain h4 {
+    font-size: 1.2rem;
+    font-weight: 800;
+    margin-bottom: 4px;
+}
+
+.orderMain p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.orderRight {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.orderPrice {
+    font-size: 1.25rem;
+    font-weight: 800;
+}
+
+.venumBadge {
+    padding: 8px 18px;
+    border-radius: 99px;
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.delivered {
+    background: rgba(16, 185, 129, 0.1);
+    color: #059669;
+}
+
+.intransit {
+    background: rgba(59, 130, 246, 0.1);
+    color: #2563eb;
+}
+
+/* Buttons */
+.venumPrimaryBtn {
+    background: var(--primary);
+    color: white;
+    padding: 18px 45px;
+    border-radius: 20px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.venumPrimaryBtn:hover {
+    background: var(--accent);
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(197, 160, 89, 0.25);
+}
+
+.venumSecondaryBtn {
+    padding: 18px 45px;
+    border-radius: 20px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--bg-soft);
+    border: 1px solid var(--border);
+}
+
+/* Animations background */
+.venumContentCard::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    left: -50px;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(197, 160, 89, 0.03) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+/* Responsive */
+@media (max-width: 1280px) {
+    .venumLayout {
+        grid-template-columns: 320px 1fr;
+        gap: 30px;
+    }
+
+    .venumContentCard {
+        padding: 50px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .venumLayout {
+        grid-template-columns: 1fr;
+    }
+
+    .venumSidebar {
+        position: static;
+    }
+
+    .venumContentCard {
+        min-height: auto;
+    }
+
+    .overviewGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .promoBanner {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding: 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    .sectionTitle {
+        font-size: 2.2rem;
+    }
+
+    .profileFormGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .venumContentCard {
+        padding: 30px 20px;
+    }
+
+    .venumOrderCard {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    .orderRight {
+        width: 100%;
+        justify-content: space-between;
+    }
+}
+
+/* Vault / Address Grid */
+.venumAddressGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.venumAddressCard {
+    background: var(--bg-soft);
+    border: 1px solid var(--border);
+    border-radius: 30px;
+    padding: 40px;
+    transition: all 0.4s ease;
+}
+
+.addAddrCard {
+    border: 2px dashed var(--border);
+    background: transparent;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    min-height: 250px;
+    color: var(--text-muted);
+    font-weight: 700;
+    transition: all 0.3s ease;
+}
+
+.addAddrCard:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: var(--bg-soft);
+}
+
+.venumCard {
+    max-width: 400px;
+}
+
+.cardVisual {
+    background: linear-gradient(135deg, #1a1a1a 0%, #000 100%);
+    border-radius: 20px;
+    padding: 30px;
+    color: white;
+    height: 220px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 25px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.chip {
+    width: 45px;
+    height: 35px;
+    background: linear-gradient(135deg, #ffd700 0%, #c5a059 100%);
+    border-radius: 6px;
+}
+
+.cardNumber {
+    font-size: 1.4rem;
+    letter-spacing: 3px;
+    font-family: monospace;
+}
+
+.cardMeta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+.formActions {
+    margin-top: 40px;
+    display: flex;
+    gap: 20px;
+}

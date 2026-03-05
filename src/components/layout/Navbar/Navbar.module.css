@@ -420,3 +420,25 @@
     color: var(--text-muted);
     font-size: 0.9rem;
 }
+
+.userSection {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.userAvatar {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid var(--border);
+}
+
+.scrolled .userAvatar {
+    border-color: var(--border);
+}
+
+.transparent .userAvatar {
+    border-color: rgba(255, 255, 255, 0.3);
+}

@@ -23,9 +23,8 @@ export default function TrendingCarousel() {
                 <p className={styles.description}>The most loved pieces from our current collection</p>
 
                 <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
+                    initial={{ opacity: 1, y: 0 }}
+                    animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.2 }}
                 >
                     <Swiper
