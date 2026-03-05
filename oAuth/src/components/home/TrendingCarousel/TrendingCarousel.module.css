@@ -1,0 +1,43 @@
+.trending {
+    background: var(--bg);
+    padding: 100px 0;
+}
+
+.header {
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.title {
+    font-size: 2.8rem;
+}
+
+.title span {
+    font-weight: 300;
+    font-style: italic;
+}
+
+.swiper {
+    padding: 40px 10px !important;
+}
+
+/* Custom Swiper Styles */
+:global(.swiper-button-next),
+:global(.swiper-button-prev) {
+    color: var(--primary) !important;
+    background: var(--white);
+    width: 50px !important;
+    height: 50px !important;
+    border-radius: 50%;
+    box-shadow: var(--shadow-md);
+}
+
+:global(.swiper-button-next:after),
+:global(.swiper-button-prev:after) {
+    font-size: 1.2rem !important;
+    font-weight: bold;
+}
+
+:global(.swiper-pagination-bullet-active) {
+    background: var(--accent) !important;
+}

@@ -1,0 +1,33 @@
+.toggle {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-soft);
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    color: var(--text);
+    transition: var(--transition);
+}
+
+.toggle:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    transform: rotate(15deg);
+}
+
+.iconWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.5s ease;
+}
+
+.dark {
+    transform: rotate(360deg);
+}
+
+.light {
+    transform: rotate(0deg);
+}

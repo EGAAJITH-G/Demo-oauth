@@ -1,0 +1,422 @@
+/* =============================================
+   NAVBAR — Base
+   ============================================= */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    transition: background 0.45s ease, height 0.45s ease, box-shadow 0.45s ease;
+    z-index: 1000;
+}
+
+/* ---- Transparent state (on hero top) ---- */
+.transparent {
+    background: transparent;
+}
+
+/* ---- Scrolled state — frosted glass ---- */
+.scrolled {
+    background: var(--nav-bg);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    height: 68px;
+    box-shadow: 0 2px 30px rgba(0, 0, 0, 0.08);
+    border-bottom: 1px solid var(--border);
+}
+
+/* =============================================
+   INNER CONTAINER
+   ============================================= */
+.navContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    gap: 32px;
+}
+
+/* =============================================
+   LOGO
+   ============================================= */
+.logo {
+    flex-shrink: 0;
+    z-index: 2;
+}
+
+.logo a {
+    font-family: var(--font-heading);
+    font-size: 1.7rem;
+    font-weight: 700;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    white-space: nowrap;
+    color: white;
+    transition: color 0.35s ease, letter-spacing 0.35s ease;
+}
+
+.scrolled .logo a {
+    color: var(--text);
+    letter-spacing: 4px;
+}
+
+.logo a:hover {
+    color: var(--accent);
+}
+
+/* =============================================
+   NAV LINKS (desktop)
+   ============================================= */
+.navLinks {
+    display: flex;
+    gap: 34px;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navLinks li a {
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1.8px;
+    position: relative;
+    white-space: nowrap;
+    color: rgba(255, 255, 255, 0.88);
+    transition: color 0.3s ease;
+}
+
+.navLinks li a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--accent);
+    transition: width 0.35s ease;
+}
+
+.navLinks li a:hover {
+    color: var(--accent);
+}
+
+.navLinks li a:hover::after {
+    width: 100%;
+}
+
+/* When scrolled — links use dark text */
+.scrolled .navLinks li a {
+    color: var(--text);
+}
+
+.scrolled .navLinks li a:hover {
+    color: var(--accent);
+}
+
+/* =============================================
+   RIGHT ACTIONS
+   ============================================= */
+.navActions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+/* Unified icon button */
+.iconBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: transparent;
+    border: none;
+    color: rgba(255, 255, 255, 0.88);
+    cursor: pointer;
+    transition: color 0.3s ease, background 0.3s ease;
+    position: relative;
+    text-decoration: none;
+}
+
+.iconBtn:hover {
+    color: var(--accent);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.scrolled .iconBtn {
+    color: var(--text);
+}
+
+.scrolled .iconBtn:hover {
+    color: var(--accent);
+    background: var(--bg-soft);
+}
+
+/* Badge on cart / wishlist */
+.badgeWrap {
+    position: relative;
+}
+
+.badge {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    background: var(--accent);
+    color: white;
+    font-size: 0.58rem;
+    font-weight: 700;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    pointer-events: none;
+}
+
+/* ThemeToggle wrapper — different look on transparent vs scrolled */
+.themeWrap {
+    display: flex;
+}
+
+/* Override ThemeToggle bg when transparent navbar */
+.transparent .themeWrap button {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border-color: rgba(255, 255, 255, 0.25) !important;
+    color: white !important;
+}
+
+/* Hamburger — hidden on desktop */
+.hamburger {
+    display: none;
+    width: 40px;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.scrolled .hamburger {
+    color: var(--text);
+}
+
+/* =============================================
+   RESPONSIVE
+   ============================================= */
+@media (max-width: 1100px) {
+    .navLinks {
+        gap: 24px;
+    }
+}
+
+@media (max-width: 900px) {
+
+    /* Mobile: hide desktop nav, show hamburger */
+    .navLinks {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: var(--bg);
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 28px 32px 32px;
+        gap: 20px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        border-bottom: 2px solid var(--border);
+        z-index: 999;
+    }
+
+    /* Force dark text in mobile dropdown regardless of scroll state */
+    .navLinks li a,
+    .transparent .navLinks li a,
+    .scrolled .navLinks li a {
+        color: var(--text) !important;
+        font-size: 1rem;
+        letter-spacing: 2px;
+    }
+
+    .navLinks.open {
+        display: flex;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+}
+
+@media (max-width: 600px) {
+    .navbar {
+        height: 64px;
+    }
+
+    .scrolled {
+        height: 58px;
+    }
+
+    .logo a {
+        font-size: 1.35rem;
+        letter-spacing: 3px;
+    }
+
+    .navActions {
+        gap: 4px;
+    }
+
+    .iconBtn {
+        width: 36px;
+        height: 36px;
+    }
+}
+
+/* =============================================
+   SEARCH OVERLAY
+   ============================================= */
+.searchOverlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(8px);
+    z-index: 2000;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding-top: 120px;
+    animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.searchBox {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    width: 100%;
+    max-width: 580px;
+    margin: 0 24px;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.25);
+    overflow: hidden;
+    animation: slideDown 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px) scale(0.97);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.searchForm {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 18px 20px;
+    border-bottom: 1px solid var(--border);
+}
+
+.searchIcon {
+    color: var(--text-muted);
+    flex-shrink: 0;
+}
+
+.searchInput {
+    flex: 1;
+    background: none;
+    border: none;
+    outline: none;
+    font-size: 1.1rem;
+    color: var(--text);
+    font-family: var(--font-body);
+}
+
+.searchInput::placeholder {
+    color: var(--text-muted);
+    opacity: 0.7;
+}
+
+.searchClose {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    padding: 4px;
+    border-radius: 8px;
+    transition: color 0.2s;
+}
+
+.searchClose:hover {
+    color: var(--text);
+}
+
+.searchResults {
+    list-style: none;
+    padding: 8px 0;
+    margin: 0;
+    max-height: 320px;
+    overflow-y: auto;
+}
+
+.resultItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 20px;
+    transition: background 0.2s;
+    text-decoration: none;
+    border-bottom: 1px solid var(--border);
+}
+
+.resultItem:last-child {
+    border-bottom: none;
+}
+
+.resultItem:hover {
+    background: var(--bg-soft);
+}
+
+.resultName {
+    font-size: 0.95rem;
+    color: var(--text);
+    font-weight: 500;
+}
+
+.resultCategory {
+    font-size: 0.8rem;
+    color: var(--accent);
+    font-weight: 500;
+}
+
+.noResults {
+    padding: 20px;
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
