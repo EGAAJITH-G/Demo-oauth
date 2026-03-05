@@ -1,0 +1,89 @@
+.featured {
+    background: var(--bg);
+}
+
+/* Section Header */
+.header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.subtitle {
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-size: 0.78rem;
+    color: var(--accent);
+    font-weight: 500;
+    display: block;
+    margin-bottom: 14px;
+}
+
+.title {
+    font-size: clamp(2.2rem, 4vw, 3rem);
+    margin: 0;
+    line-height: 1.15;
+}
+
+.title span {
+    font-weight: 300;
+    font-style: italic;
+    color: var(--text-muted);
+}
+
+.line {
+    width: 50px;
+    height: 2px;
+    background: var(--accent);
+    margin: 20px auto 0;
+}
+
+/* Product grid - 4 columns, balanced gaps */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 28px;
+}
+
+.viewAll {
+    margin-top: 64px;
+    text-align: center;
+}
+
+.viewBtn {
+    border: 1px solid var(--primary);
+    color: var(--primary);
+    padding: 13px 44px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.8rem;
+    transition: var(--transition);
+    background: transparent;
+}
+
+.viewBtn:hover {
+    background: var(--primary);
+    color: var(--bg);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+}
+
+@media (max-width: 1200px) {
+    .grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 900px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 14px;
+    }
+}

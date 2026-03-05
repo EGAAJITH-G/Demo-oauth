@@ -1,0 +1,165 @@
+/* [project]/Desktop/oAuth/src/components/common/ProductCard/ProductCard.module.css [app-client] (css) */
+.ProductCard-module__dTwC9W__card {
+  transition: var(--transition);
+  cursor: pointer;
+}
+
+.ProductCard-module__dTwC9W__imageWrapper {
+  aspect-ratio: 3 / 4;
+  border-radius: var(--radius-sm);
+  background: var(--bg-soft);
+  position: relative;
+  overflow: hidden;
+}
+
+.ProductCard-module__dTwC9W__image {
+  object-fit: cover;
+  object-position: center top;
+  width: 100%;
+  height: 100%;
+  transition: transform .9s cubic-bezier(.25, 1, .5, 1);
+}
+
+.ProductCard-module__dTwC9W__card:hover .ProductCard-module__dTwC9W__image {
+  transform: scale(1.07);
+}
+
+.ProductCard-module__dTwC9W__overlay {
+  opacity: 0;
+  background: #00000059;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  transition: opacity .4s;
+  display: flex;
+  position: absolute;
+  inset: 0;
+}
+
+.ProductCard-module__dTwC9W__card:hover .ProductCard-module__dTwC9W__overlay {
+  opacity: 1;
+}
+
+.ProductCard-module__dTwC9W__actions {
+  gap: 10px;
+  margin-bottom: 16px;
+  transition: transform .4s;
+  display: flex;
+  transform: translateY(-16px);
+}
+
+.ProductCard-module__dTwC9W__card:hover .ProductCard-module__dTwC9W__actions {
+  transform: translateY(0);
+}
+
+.ProductCard-module__dTwC9W__iconBtn {
+  background: var(--white);
+  width: 42px;
+  height: 42px;
+  color: var(--primary);
+  border: none;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+  transition: all .3s;
+  display: flex;
+  box-shadow: 0 4px 12px #00000026;
+}
+
+.ProductCard-module__dTwC9W__iconBtn:hover {
+  background: var(--accent);
+  color: var(--white);
+  transform: scale(1.1);
+}
+
+.ProductCard-module__dTwC9W__addToCartBtn {
+  background: var(--white);
+  width: 100%;
+  max-width: 180px;
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  border-radius: 2px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  padding: 11px;
+  font-size: .72rem;
+  font-weight: 600;
+  transition: all .4s;
+  display: flex;
+  transform: translateY(16px);
+}
+
+.ProductCard-module__dTwC9W__card:hover .ProductCard-module__dTwC9W__addToCartBtn {
+  transform: translateY(0);
+}
+
+.ProductCard-module__dTwC9W__addToCartBtn:hover {
+  background: var(--accent);
+  color: var(--white);
+}
+
+.ProductCard-module__dTwC9W__badge {
+  background: var(--accent);
+  color: var(--white);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  z-index: 2;
+  border-radius: 2px;
+  padding: 4px 10px;
+  font-size: .7rem;
+  font-weight: 700;
+  position: absolute;
+  top: 14px;
+  left: 14px;
+}
+
+.ProductCard-module__dTwC9W__info {
+  text-align: left;
+  margin-top: 14px;
+  padding: 0 2px;
+}
+
+.ProductCard-module__dTwC9W__topInfo {
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5px;
+  display: flex;
+}
+
+.ProductCard-module__dTwC9W__category {
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-size: .72rem;
+}
+
+.ProductCard-module__dTwC9W__rating {
+  color: var(--accent);
+  align-items: center;
+  gap: 4px;
+  font-size: .8rem;
+  font-weight: 600;
+  display: flex;
+}
+
+.ProductCard-module__dTwC9W__name {
+  font-size: 1rem;
+  font-family: var(--font-body);
+  color: var(--text);
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  margin-bottom: 4px;
+  font-weight: 600;
+  overflow: hidden;
+}
+
+.ProductCard-module__dTwC9W__price {
+  color: var(--accent);
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+/*# sourceMappingURL=a830a_Desktop_oAuth_src_components_common_ProductCard_ProductCard_module_css_bad6b30c._.single.css.map*/

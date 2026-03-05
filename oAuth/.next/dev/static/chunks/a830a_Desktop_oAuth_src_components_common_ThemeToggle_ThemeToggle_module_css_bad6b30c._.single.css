@@ -1,0 +1,36 @@
+/* [project]/Desktop/oAuth/src/components/common/ThemeToggle/ThemeToggle.module.css [app-client] (css) */
+.ThemeToggle-module___Z8nzW__toggle {
+  background: var(--bg-soft);
+  border: 1px solid var(--border);
+  width: 44px;
+  height: 44px;
+  color: var(--text);
+  transition: var(--transition);
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.ThemeToggle-module___Z8nzW__toggle:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  transform: rotate(15deg);
+}
+
+.ThemeToggle-module___Z8nzW__iconWrapper {
+  justify-content: center;
+  align-items: center;
+  transition: transform .5s;
+  display: flex;
+}
+
+.ThemeToggle-module___Z8nzW__dark {
+  transform: rotate(360deg);
+}
+
+.ThemeToggle-module___Z8nzW__light {
+  transform: rotate(0);
+}
+
+/*# sourceMappingURL=a830a_Desktop_oAuth_src_components_common_ThemeToggle_ThemeToggle_module_css_bad6b30c._.single.css.map*/

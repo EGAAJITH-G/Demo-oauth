@@ -1,0 +1,59 @@
+.shopPage {
+    background: var(--bg);
+}
+
+.shopBanner {
+    height: 420px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    overflow: hidden;
+}
+
+.bannerBg {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+}
+
+.bannerImg {
+    object-fit: cover;
+    object-position: center;
+}
+
+.bannerOverlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+    z-index: 2;
+}
+
+.bannerContent {
+    position: relative;
+    z-index: 3;
+}
+
+.title {
+    font-size: clamp(2.8rem, 6vw, 4.5rem);
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 12px;
+    line-height: 1.1;
+}
+
+.title span {
+    font-weight: 300;
+    font-style: italic;
+    color: var(--accent);
+}
+
+.shopBanner p {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    color: rgba(255, 255, 255, 0.8);
+    max-width: 600px;
+    margin: 0 auto;
+}

@@ -1,0 +1,43 @@
+/* [project]/Desktop/oAuth/src/components/home/TrendingCarousel/TrendingCarousel.module.css [app-client] (css) */
+.TrendingCarousel-module__00pTKW__trending {
+  background: var(--bg);
+  padding: 100px 0;
+}
+
+.TrendingCarousel-module__00pTKW__header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.TrendingCarousel-module__00pTKW__title {
+  font-size: 2.8rem;
+}
+
+.TrendingCarousel-module__00pTKW__title span {
+  font-style: italic;
+  font-weight: 300;
+}
+
+.TrendingCarousel-module__00pTKW__swiper {
+  padding: 40px 10px !important;
+}
+
+:is(.swiper-button-next, .swiper-button-prev) {
+  background: var(--white);
+  box-shadow: var(--shadow-md);
+  border-radius: 50%;
+  color: var(--primary) !important;
+  width: 50px !important;
+  height: 50px !important;
+}
+
+:is(.swiper-button-next:after, .swiper-button-prev:after) {
+  font-weight: bold;
+  font-size: 1.2rem !important;
+}
+
+.swiper-pagination-bullet-active {
+  background: var(--accent) !important;
+}
+
+/*# sourceMappingURL=7ca34_oAuth_src_components_home_TrendingCarousel_TrendingCarousel_module_css_bad6b30c._.single.css.map*/

@@ -1,0 +1,387 @@
+/* [project]/Desktop/oAuth/src/components/layout/Navbar/Navbar.module.css [app-client] (css) */
+.Navbar-module__Ssv6GG__navbar {
+  z-index: 1000;
+  align-items: center;
+  width: 100%;
+  height: 80px;
+  transition: background .45s, height .45s, box-shadow .45s;
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.Navbar-module__Ssv6GG__transparent {
+  background: none;
+}
+
+.Navbar-module__Ssv6GG__scrolled {
+  background: var(--nav-bg);
+  -webkit-backdrop-filter: blur(24px);
+  border-bottom: 1px solid var(--border);
+  height: 68px;
+  box-shadow: 0 2px 30px #00000014;
+}
+
+.Navbar-module__Ssv6GG__navContainer {
+  justify-content: space-between;
+  align-items: center;
+  gap: 32px;
+  width: 100%;
+  display: flex;
+}
+
+.Navbar-module__Ssv6GG__logo {
+  z-index: 2;
+  flex-shrink: 0;
+}
+
+.Navbar-module__Ssv6GG__logo a {
+  font-family: var(--font-heading);
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: #fff;
+  font-size: 1.7rem;
+  font-weight: 700;
+  transition: color .35s, letter-spacing .35s;
+}
+
+.Navbar-module__Ssv6GG__scrolled .Navbar-module__Ssv6GG__logo a {
+  color: var(--text);
+  letter-spacing: 4px;
+}
+
+.Navbar-module__Ssv6GG__logo a:hover {
+  color: var(--accent);
+}
+
+.Navbar-module__Ssv6GG__navLinks {
+  align-items: center;
+  gap: 34px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+}
+
+.Navbar-module__Ssv6GG__navLinks li a {
+  text-transform: uppercase;
+  letter-spacing: 1.8px;
+  white-space: nowrap;
+  color: #ffffffe0;
+  font-size: .8rem;
+  font-weight: 500;
+  transition: color .3s;
+  position: relative;
+}
+
+.Navbar-module__Ssv6GG__navLinks li a:after {
+  content: "";
+  background: var(--accent);
+  width: 0;
+  height: 1px;
+  transition: width .35s;
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+}
+
+.Navbar-module__Ssv6GG__navLinks li a:hover {
+  color: var(--accent);
+}
+
+.Navbar-module__Ssv6GG__navLinks li a:hover:after {
+  width: 100%;
+}
+
+.Navbar-module__Ssv6GG__scrolled .Navbar-module__Ssv6GG__navLinks li a {
+  color: var(--text);
+}
+
+.Navbar-module__Ssv6GG__scrolled .Navbar-module__Ssv6GG__navLinks li a:hover {
+  color: var(--accent);
+}
+
+.Navbar-module__Ssv6GG__navActions {
+  flex-shrink: 0;
+  align-items: center;
+  gap: 8px;
+  display: flex;
+}
+
+.Navbar-module__Ssv6GG__iconBtn {
+  color: #ffffffe0;
+  cursor: pointer;
+  background: none;
+  border: none;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  text-decoration: none;
+  transition: color .3s, background .3s;
+  display: flex;
+  position: relative;
+}
+
+.Navbar-module__Ssv6GG__iconBtn:hover {
+  color: var(--accent);
+  background: #ffffff1a;
+}
+
+.Navbar-module__Ssv6GG__scrolled .Navbar-module__Ssv6GG__iconBtn {
+  color: var(--text);
+}
+
+.Navbar-module__Ssv6GG__scrolled .Navbar-module__Ssv6GG__iconBtn:hover {
+  color: var(--accent);
+  background: var(--bg-soft);
+}
+
+.Navbar-module__Ssv6GG__badgeWrap {
+  position: relative;
+}
+
+.Navbar-module__Ssv6GG__badge {
+  background: var(--accent);
+  color: #fff;
+  pointer-events: none;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+  width: 16px;
+  height: 16px;
+  font-size: .58rem;
+  font-weight: 700;
+  line-height: 1;
+  display: flex;
+  position: absolute;
+  top: 2px;
+  right: 2px;
+}
+
+.Navbar-module__Ssv6GG__themeWrap {
+  display: flex;
+}
+
+.Navbar-module__Ssv6GG__transparent .Navbar-module__Ssv6GG__themeWrap button {
+  color: #fff !important;
+  background: #ffffff1a !important;
+  border-color: #ffffff40 !important;
+}
+
+.Navbar-module__Ssv6GG__hamburger {
+  color: #fff;
+  cursor: pointer;
+  background: none;
+  border: none;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  transition: color .3s;
+  display: none;
+}
+
+.Navbar-module__Ssv6GG__scrolled .Navbar-module__Ssv6GG__hamburger {
+  color: var(--text);
+}
+
+@media (max-width: 1100px) {
+  .Navbar-module__Ssv6GG__navLinks {
+    gap: 24px;
+  }
+}
+
+@media (max-width: 900px) {
+  .Navbar-module__Ssv6GG__navLinks {
+    background: var(--bg);
+    border-bottom: 2px solid var(--border);
+    z-index: 999;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    width: 100%;
+    padding: 28px 32px 32px;
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    box-shadow: 0 20px 40px #0000001a;
+  }
+
+  .Navbar-module__Ssv6GG__navLinks li a, .Navbar-module__Ssv6GG__transparent .Navbar-module__Ssv6GG__navLinks li a, .Navbar-module__Ssv6GG__scrolled .Navbar-module__Ssv6GG__navLinks li a {
+    letter-spacing: 2px;
+    font-size: 1rem;
+    color: var(--text) !important;
+  }
+
+  .Navbar-module__Ssv6GG__navLinks.Navbar-module__Ssv6GG__open, .Navbar-module__Ssv6GG__hamburger {
+    display: flex;
+  }
+}
+
+@media (max-width: 600px) {
+  .Navbar-module__Ssv6GG__navbar {
+    height: 64px;
+  }
+
+  .Navbar-module__Ssv6GG__scrolled {
+    height: 58px;
+  }
+
+  .Navbar-module__Ssv6GG__logo a {
+    letter-spacing: 3px;
+    font-size: 1.35rem;
+  }
+
+  .Navbar-module__Ssv6GG__navActions {
+    gap: 4px;
+  }
+
+  .Navbar-module__Ssv6GG__iconBtn {
+    width: 36px;
+    height: 36px;
+  }
+}
+
+.Navbar-module__Ssv6GG__searchOverlay {
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  z-index: 2000;
+  background: #0009;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 120px;
+  animation: .2s Navbar-module__Ssv6GG__fadeIn;
+  display: flex;
+  position: fixed;
+  inset: 0;
+}
+
+@keyframes Navbar-module__Ssv6GG__fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.Navbar-module__Ssv6GG__searchBox {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  width: 100%;
+  max-width: 580px;
+  margin: 0 24px;
+  animation: .3s cubic-bezier(.34, 1.56, .64, 1) Navbar-module__Ssv6GG__slideDown;
+  overflow: hidden;
+  box-shadow: 0 30px 80px #00000040;
+}
+
+@keyframes Navbar-module__Ssv6GG__slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px)scale(.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0)scale(1);
+  }
+}
+
+.Navbar-module__Ssv6GG__searchForm {
+  border-bottom: 1px solid var(--border);
+  align-items: center;
+  gap: 12px;
+  padding: 18px 20px;
+  display: flex;
+}
+
+.Navbar-module__Ssv6GG__searchIcon {
+  color: var(--text-muted);
+  flex-shrink: 0;
+}
+
+.Navbar-module__Ssv6GG__searchInput {
+  color: var(--text);
+  font-size: 1.1rem;
+  font-family: var(--font-body);
+  background: none;
+  border: none;
+  outline: none;
+  flex: 1;
+}
+
+.Navbar-module__Ssv6GG__searchInput::placeholder {
+  color: var(--text-muted);
+  opacity: .7;
+}
+
+.Navbar-module__Ssv6GG__searchClose {
+  cursor: pointer;
+  color: var(--text-muted);
+  background: none;
+  border: none;
+  border-radius: 8px;
+  align-items: center;
+  padding: 4px;
+  transition: color .2s;
+  display: flex;
+}
+
+.Navbar-module__Ssv6GG__searchClose:hover {
+  color: var(--text);
+}
+
+.Navbar-module__Ssv6GG__searchResults {
+  max-height: 320px;
+  margin: 0;
+  padding: 8px 0;
+  list-style: none;
+  overflow-y: auto;
+}
+
+.Navbar-module__Ssv6GG__resultItem {
+  border-bottom: 1px solid var(--border);
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 20px;
+  text-decoration: none;
+  transition: background .2s;
+  display: flex;
+}
+
+.Navbar-module__Ssv6GG__resultItem:last-child {
+  border-bottom: none;
+}
+
+.Navbar-module__Ssv6GG__resultItem:hover {
+  background: var(--bg-soft);
+}
+
+.Navbar-module__Ssv6GG__resultName {
+  color: var(--text);
+  font-size: .95rem;
+  font-weight: 500;
+}
+
+.Navbar-module__Ssv6GG__resultCategory {
+  color: var(--accent);
+  font-size: .8rem;
+  font-weight: 500;
+}
+
+.Navbar-module__Ssv6GG__noResults {
+  text-align: center;
+  color: var(--text-muted);
+  padding: 20px;
+  font-size: .9rem;
+}
+
+/*# sourceMappingURL=%5Bproject%5D_Desktop_oAuth_src_components_layout_Navbar_Navbar_module_css_bad6b30c._.single.css.map*/

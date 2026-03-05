@@ -1,0 +1,39 @@
+.header {
+    margin-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+}
+
+.centered {
+    align-items: center;
+    text-align: center;
+}
+
+.subtitle {
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-size: 0.8rem;
+    color: var(--accent);
+    margin-bottom: 10px;
+}
+
+.title {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-family: 'Playfair Display', serif;
+    color: var(--primary);
+    margin: 0;
+}
+
+.accent {
+    color: var(--accent);
+    font-weight: 300;
+    font-style: italic;
+    margin-left: 10px;
+}
+
+.line {
+    width: 60px;
+    height: 3px;
+    background: var(--accent);
+    margin-top: 15px;
+}

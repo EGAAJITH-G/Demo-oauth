@@ -1,0 +1,116 @@
+/* [project]/Desktop/oAuth/src/components/common/Toast/Toast.module.css [app-client] (css) */
+.Toast-module__8On53G__container {
+  z-index: 9999;
+  pointer-events: none;
+  flex-direction: column;
+  gap: 12px;
+  display: flex;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+}
+
+.Toast-module__8On53G__toast {
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  pointer-events: all;
+  min-width: 280px;
+  max-width: 380px;
+  font-family: var(--font-body);
+  letter-spacing: .01em;
+  border-radius: 10px;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 18px;
+  font-size: .9rem;
+  font-weight: 500;
+  animation: .35s cubic-bezier(.34, 1.56, .64, 1) forwards Toast-module__8On53G__slideIn;
+  display: flex;
+  box-shadow: 0 8px 30px #0003;
+}
+
+.Toast-module__8On53G__success {
+  color: #fff;
+  background: #0a0a0aeb;
+  border: 1px solid #c5a05966;
+}
+
+.Toast-module__8On53G__success .Toast-module__8On53G__icon {
+  color: #c5a059;
+}
+
+.Toast-module__8On53G__error {
+  color: #fff;
+  background: #0a0a0aeb;
+  border: 1px solid #dc505066;
+}
+
+.Toast-module__8On53G__error .Toast-module__8On53G__icon {
+  color: #ff6b6b;
+}
+
+.Toast-module__8On53G__info {
+  color: #fff;
+  background: #0a0a0aeb;
+  border: 1px solid #64a0dc66;
+}
+
+.Toast-module__8On53G__info .Toast-module__8On53G__icon {
+  color: #64a0dc;
+}
+
+.Toast-module__8On53G__icon {
+  flex-shrink: 0;
+  align-items: center;
+  display: flex;
+}
+
+.Toast-module__8On53G__message {
+  flex: 1;
+  line-height: 1.4;
+}
+
+.Toast-module__8On53G__close {
+  cursor: pointer;
+  color: #ffffff80;
+  background: none;
+  border: none;
+  border-radius: 4px;
+  flex-shrink: 0;
+  align-items: center;
+  padding: 2px;
+  transition: color .2s;
+  display: flex;
+}
+
+.Toast-module__8On53G__close:hover {
+  color: #fff;
+}
+
+@keyframes Toast-module__8On53G__slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(40px)scale(.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0)scale(1);
+  }
+}
+
+@media (max-width: 480px) {
+  .Toast-module__8On53G__container {
+    bottom: 20px;
+    left: 16px;
+    right: 16px;
+  }
+
+  .Toast-module__8On53G__toast {
+    min-width: unset;
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+/*# sourceMappingURL=%5Bproject%5D_Desktop_oAuth_src_components_common_Toast_Toast_module_css_bad6b30c._.single.css.map*/

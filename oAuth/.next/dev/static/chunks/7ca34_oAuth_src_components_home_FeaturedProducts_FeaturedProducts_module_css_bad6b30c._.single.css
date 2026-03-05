@@ -1,0 +1,90 @@
+/* [project]/Desktop/oAuth/src/components/home/FeaturedProducts/FeaturedProducts.module.css [app-client] (css) */
+.FeaturedProducts-module__VKx2ZW__featured {
+  background: var(--bg);
+}
+
+.FeaturedProducts-module__VKx2ZW__header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.FeaturedProducts-module__VKx2ZW__subtitle {
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  color: var(--accent);
+  margin-bottom: 14px;
+  font-size: .78rem;
+  font-weight: 500;
+  display: block;
+}
+
+.FeaturedProducts-module__VKx2ZW__title {
+  margin: 0;
+  font-size: clamp(2.2rem, 4vw, 3rem);
+  line-height: 1.15;
+}
+
+.FeaturedProducts-module__VKx2ZW__title span {
+  color: var(--text-muted);
+  font-style: italic;
+  font-weight: 300;
+}
+
+.FeaturedProducts-module__VKx2ZW__line {
+  background: var(--accent);
+  width: 50px;
+  height: 2px;
+  margin: 20px auto 0;
+}
+
+.FeaturedProducts-module__VKx2ZW__grid {
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+  display: grid;
+}
+
+.FeaturedProducts-module__VKx2ZW__viewAll {
+  text-align: center;
+  margin-top: 64px;
+}
+
+.FeaturedProducts-module__VKx2ZW__viewBtn {
+  border: 1px solid var(--primary);
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: var(--transition);
+  background: none;
+  padding: 13px 44px;
+  font-size: .8rem;
+  font-weight: 600;
+}
+
+.FeaturedProducts-module__VKx2ZW__viewBtn:hover {
+  background: var(--primary);
+  color: var(--bg);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-3px);
+}
+
+@media (max-width: 1200px) {
+  .FeaturedProducts-module__VKx2ZW__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .FeaturedProducts-module__VKx2ZW__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .FeaturedProducts-module__VKx2ZW__grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+}
+
+/*# sourceMappingURL=7ca34_oAuth_src_components_home_FeaturedProducts_FeaturedProducts_module_css_bad6b30c._.single.css.map*/

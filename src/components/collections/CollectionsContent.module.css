@@ -1,0 +1,373 @@
+/* =============================================
+   COLLECTIONS PAGE
+   ============================================= */
+
+/* ── HERO BANNER ── */
+.banner {
+    position: relative;
+    height: 55vh;
+    min-height: 420px;
+    display: flex;
+    align-items: flex-end;
+    padding-top: 80px;
+    /* navbar offset */
+    overflow: hidden;
+}
+
+/* .bannerBg {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+} */
+
+.bannerImg {
+    object-fit: cover;
+    object-position: center 40%;
+}
+
+.bannerOverlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top,
+            rgba(0, 0, 0, 0.75) 0%,
+            rgba(0, 0, 0, 0.35) 50%,
+            rgba(0, 0, 0, 0.15) 100%);
+}
+
+.bannerContent {
+    position: relative;
+    z-index: 10;
+    color: white;
+    padding-bottom: 56px;
+}
+
+.bannerTag {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 6px;
+    color: var(--accent);
+    margin-bottom: 16px;
+    font-family: 'Outfit', sans-serif;
+}
+
+.bannerTag::before {
+    content: '';
+    display: block;
+    width: 28px;
+    height: 1px;
+    background: var(--accent);
+}
+
+.bannerTitle {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3rem, 7vw, 5.5rem);
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    color: white;
+    margin-bottom: 16px;
+}
+
+.bannerTitle em {
+    font-style: italic;
+    font-weight: 300;
+    color: var(--accent);
+}
+
+.bannerDesc {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.65);
+    max-width: 480px;
+    line-height: 1.8;
+    font-weight: 300;
+    font-family: 'Outfit', sans-serif;
+}
+
+/* ── BENTO GRID ── */
+.gridSection {
+    padding: 80px 0 100px;
+    background: var(--bg);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 380px;
+    gap: 20px;
+}
+
+/* ── Collection Card ── */
+.card {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    border-radius: 2px;
+}
+
+/* Featured: tall card (2 rows) */
+.card:nth-child(1) {
+    grid-row: span 2;
+}
+
+/* Featured: wide card (2 cols on row 2) */
+.card:nth-child(4) {
+    grid-column: span 2;
+}
+
+.imgWrap {
+    position: absolute;
+    inset: 0;
+}
+
+.img {
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.9s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.card:hover .img {
+    transform: scale(1.06);
+}
+
+.cardOverlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top,
+            rgba(0, 0, 0, 0.82) 0%,
+            rgba(0, 0, 0, 0.3) 45%,
+            rgba(0, 0, 0, 0.05) 100%);
+    transition: background 0.4s ease;
+}
+
+.card:hover .cardOverlay {
+    background: linear-gradient(to top,
+            rgba(0, 0, 0, 0.88) 0%,
+            rgba(0, 0, 0, 0.45) 55%,
+            rgba(0, 0, 0, 0.1) 100%);
+}
+
+/* Card content */
+.cardBody {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 32px 28px;
+    z-index: 2;
+    color: white;
+    transform: translateY(0);
+    transition: transform 0.4s ease;
+}
+
+/* Top row: tag + count */
+.cardTop {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.cardTag {
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    color: var(--accent);
+    font-family: 'Outfit', sans-serif;
+}
+
+.cardCount {
+    font-size: 0.65rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: rgba(255, 255, 255, 0.5);
+    font-family: 'Outfit', sans-serif;
+}
+
+/* Collection name */
+.cardName {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.4rem, 2.5vw, 2rem);
+    font-weight: 700;
+    color: white;
+    margin-bottom: 10px;
+    line-height: 1.15;
+}
+
+/* Description — hidden until hover */
+.cardDesc {
+    font-size: 0.88rem;
+    color: rgba(255, 255, 255, 0.65);
+    line-height: 1.7;
+    max-width: 360px;
+    font-weight: 300;
+    font-family: 'Outfit', sans-serif;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    margin-bottom: 0;
+    transition: max-height 0.4s ease, opacity 0.4s ease, margin-bottom 0.4s ease;
+}
+
+.card:hover .cardDesc {
+    max-height: 80px;
+    opacity: 1;
+    margin-bottom: 18px;
+}
+
+/* CTA button */
+.cardBtn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    color: var(--accent);
+    font-family: 'Outfit', sans-serif;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.4s ease, transform 0.4s ease, gap 0.3s ease;
+    padding-bottom: 2px;
+    border-bottom: 1px solid transparent;
+}
+
+.card:hover .cardBtn {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.cardBtn:hover {
+    gap: 14px;
+    border-bottom-color: var(--accent);
+}
+
+/* ── CTA STRIP ── */
+.cta {
+    padding: 100px 0;
+    background: var(--bg-soft);
+    border-top: 1px solid var(--border);
+}
+
+.ctaBox {
+    text-align: center;
+    max-width: 680px;
+    margin: 0 auto;
+}
+
+.ctaTag {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 6px;
+    color: var(--accent);
+    margin-bottom: 20px;
+    font-family: 'Outfit', sans-serif;
+}
+
+.ctaTitle {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.2rem, 5vw, 3.5rem);
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 16px;
+    line-height: 1.15;
+}
+
+.ctaDesc {
+    font-size: 1rem;
+    color: var(--text-muted);
+    line-height: 1.8;
+    margin-bottom: 40px;
+    font-family: 'Outfit', sans-serif;
+}
+
+.ctaBtns {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.ctaPrimary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 44px;
+    background: var(--accent);
+    color: white;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    font-family: 'Outfit', sans-serif;
+    border: 1px solid var(--accent);
+    transition: all 0.35s ease;
+}
+
+.ctaPrimary:hover {
+    background: transparent;
+    color: var(--accent);
+}
+
+.ctaSecondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 44px;
+    background: transparent;
+    color: var(--text);
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    font-family: 'Outfit', sans-serif;
+    border: 1px solid var(--border);
+    transition: all 0.35s ease;
+}
+
+.ctaSecondary:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1024px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: 340px;
+    }
+
+    .card:nth-child(4) {
+        grid-column: span 1;
+    }
+}
+
+@media (max-width: 640px) {
+    .grid {
+        grid-template-columns: 1fr;
+        grid-auto-rows: 300px;
+    }
+
+    .card:nth-child(1),
+    .card:nth-child(4) {
+        grid-row: span 1;
+        grid-column: span 1;
+    }
+
+    .gridSection {
+        padding: 48px 0 64px;
+    }
+
+    .card:hover .cardDesc {
+        max-height: none;
+    }
+}

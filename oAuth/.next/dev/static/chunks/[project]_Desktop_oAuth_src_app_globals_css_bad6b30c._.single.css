@@ -1,0 +1,199 @@
+/* [project]/Desktop/oAuth/src/app/globals.css [app-client] (css) */
+:root {
+  --primary: #0a0a0a;
+  --primary-light: #1a1a1a;
+  --accent: #c5a059;
+  --accent-light: #d4af37;
+  --accent-dark: #a68648;
+  --text: #1a1a1a;
+  --text-muted: #666;
+  --bg: #fff;
+  --bg-soft: #f9f9f7;
+  --white: #fff;
+  --border: #e8e8e1;
+  --card-bg: #fff;
+  --nav-bg: #ffffffd9;
+  --radius-sm: 2px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --shadow-sm: 0 4px 20px #0000000a;
+  --shadow-md: 0 12px 40px #00000014;
+  --shadow-lg: 0 24px 60px #0000001f;
+  --max-width: 1400px;
+  --font-body: "Outfit", sans-serif;
+  --font-heading: "Playfair Display", serif;
+  --transition: all .5s cubic-bezier(.25, 1, .5, 1);
+}
+
+.dark-mode {
+  --primary: #f5f5f3;
+  --primary-light: #fff;
+  --accent: #d4af37;
+  --accent-light: #e5c100;
+  --text: #f5f5f5;
+  --text-muted: #a0a0a0;
+  --bg: #0a0a0a;
+  --bg-soft: #121212;
+  --white: #fff;
+  --border: #222;
+  --card-bg: #161616;
+  --nav-bg: #0a0a0ad9;
+  --shadow-sm: 0 4px 20px #0000004d;
+  --shadow-md: 0 12px 40px #0006;
+  --shadow-lg: 0 24px 60px #0009;
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  width: 100%;
+  max-width: 100%;
+  font-family: var(--font-body);
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.7;
+  transition: background-color .6s, color .6s;
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  transition: var(--transition);
+  text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  letter-spacing: -.02em;
+  line-height: 1.25;
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  cursor: pointer;
+  transition: var(--transition);
+  background: none;
+  border: none;
+  font-family: inherit;
+}
+
+input, select, textarea {
+  font-family: inherit;
+}
+
+.container {
+  max-width: var(--max-width);
+  box-sizing: border-box;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+img, video, canvas, svg, iframe {
+  max-width: 100%;
+  height: auto;
+}
+
+section {
+  padding: 120px 0;
+  position: relative;
+}
+
+.flex-center {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.grid-auto {
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 30px;
+  display: grid;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.hover-lift {
+  transition: var(--transition);
+}
+
+.hover-lift:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-8px);
+}
+
+.glass {
+  background: var(--nav-bg);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--border);
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.section-title h2 {
+  margin-bottom: 15px;
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+}
+
+.section-title p {
+  color: var(--text-muted);
+  max-width: 600px;
+  margin: 0 auto;
+  font-size: 1.1rem;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
+
+@media (max-width: 1024px) {
+  .container {
+    padding: 0 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  section {
+    padding: 80px 0;
+  }
+
+  .container {
+    padding: 0 20px;
+  }
+}
+
+/*# sourceMappingURL=%5Bproject%5D_Desktop_oAuth_src_app_globals_css_bad6b30c._.single.css.map*/

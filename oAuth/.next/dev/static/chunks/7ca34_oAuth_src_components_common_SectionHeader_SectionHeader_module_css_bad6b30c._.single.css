@@ -1,0 +1,42 @@
+/* [project]/Desktop/oAuth/src/components/common/SectionHeader/SectionHeader.module.css [app-client] (css) */
+.SectionHeader-module__q3AB6a__header {
+  flex-direction: column;
+  margin-bottom: 50px;
+  display: flex;
+}
+
+.SectionHeader-module__q3AB6a__centered {
+  text-align: center;
+  align-items: center;
+}
+
+.SectionHeader-module__q3AB6a__subtitle {
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  color: var(--accent);
+  margin-bottom: 10px;
+  font-size: .8rem;
+}
+
+.SectionHeader-module__q3AB6a__title {
+  color: var(--primary);
+  margin: 0;
+  font-family: Playfair Display, serif;
+  font-size: clamp(2rem, 5vw, 3rem);
+}
+
+.SectionHeader-module__q3AB6a__accent {
+  color: var(--accent);
+  margin-left: 10px;
+  font-style: italic;
+  font-weight: 300;
+}
+
+.SectionHeader-module__q3AB6a__line {
+  background: var(--accent);
+  width: 60px;
+  height: 3px;
+  margin-top: 15px;
+}
+
+/*# sourceMappingURL=7ca34_oAuth_src_components_common_SectionHeader_SectionHeader_module_css_bad6b30c._.single.css.map*/
